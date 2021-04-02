@@ -8,7 +8,7 @@ function App() {
     padding: 20,
     minPlotRadius: 120,
   });
-  const [radarSegments, setRadarSegments] = useState([
+  const [radarSegments] = useState([
     { label: 'Fruit', slug: 'fruit', color: '#fa9' },
     { label: 'Vegetable', slug: 'vegetable', color: '#ad0' },
     {
@@ -18,12 +18,12 @@ function App() {
     },
     { label: 'Technology', slug: 'technology', color: '#caf' },
   ]);
-  const [radarRings, setRadarRings] = useState([
+  const [radarRings] = useState([
     { label: 'High', slug: 'high' },
     { label: 'Medium', slug: 'medium' },
     { label: 'Low', slug: 'low' },
   ]);
-  const [radarElements, setRadarElements] = useState([
+  const [radarElements] = useState([
     { label: 'Apple', segment: 'technology', ring: 'high' },
     { label: 'Red Hat', segment: 'technology', ring: 'high' },
   ]);

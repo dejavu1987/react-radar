@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import RadarDiagram from 'radar-diagram';
 import './radar.css';
 const padding = 50;
@@ -17,10 +16,8 @@ const Radar = ({ options, segments, rings, elements }) => {
     switch (options.totalAngle) {
       case Math.PI:
         return '50vw';
-        break;
       default:
         return '95vw';
-        break;
     }
   };
 
