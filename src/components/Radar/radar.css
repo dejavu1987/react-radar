@@ -1,0 +1,27 @@
+.radar-container {
+  height: 95vw;
+  max-height: 92vh;
+}
+
+.radar-container svg {
+  width: auto;
+  height: 100%;
+}
+
+.radar__dot {
+  transition: all 1s;
+}
+
+.radar__dot__label {
+  fill: '#fff';
+  transform: translate(-3px, 3px);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.radar__segment-axis {
+  transition: all 1s;
+}
+
+.radar__segment__path {
+  transition: all 1s;
+}
