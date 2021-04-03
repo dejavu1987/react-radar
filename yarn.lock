@@ -5462,6 +5462,11 @@
   "resolved" "https://registry.npmjs.org/growly/-/growly-1.3.0.tgz"
   "version" "1.3.0"
 
+"gsap@^3.6.1":
+  "integrity" "sha512-hCkjk7UVbeEmlpFbiy7lIsh742bwVlMhdCnnQ1CvVOAdURyPX8hXjFZGh/0YzUyAcWPyJPE0/paMhSYtLhGlfA=="
+  "resolved" "https://registry.npmjs.org/gsap/-/gsap-3.6.1.tgz"
+  "version" "3.6.1"
+
 "gzip-size@5.1.1":
   "integrity" "sha512-FNHi6mmoHvs1mxZAds4PpdCS6QG8B4C1krxJsMutgxl5t3+GlRTzzI3NEkifXx2pVsOvJdOGSmIgDhQ55FwdPA=="
   "resolved" "https://registry.npmjs.org/gzip-size/-/gzip-size-5.1.1.tgz"
@@ -9145,10 +9150,9 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.2.tgz"
   "version" "1.2.2"
 
-"radar-diagram@^1.0.3":
-  "integrity" "sha512-X7xP8jUMVpjSi7KL8Ak4KzrY0w4h9Drh+0IB46J9zaZ5+tt9eFZxtfBt5/1jFXvQkwQsCP1UStyoJDKdh+jCIg=="
-  "resolved" "https://registry.npmjs.org/radar-diagram/-/radar-diagram-1.0.3.tgz"
-  "version" "1.0.3"
+"radar-diagram@file:../radar-diagram":
+  "resolved" "file:../radar-diagram"
+  "version" "1.1.0"
 
 "raf@^3.4.1":
   "integrity" "sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA=="

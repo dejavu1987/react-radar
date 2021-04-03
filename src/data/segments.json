@@ -1,0 +1,10 @@
+[
+  { "label": "Fruit", "slug": "fruit", "color": "#fa9" },
+  { "label": "Vegetable", "slug": "vegetable", "color": "#ad0" },
+  {
+    "label": "Framework",
+    "slug": "framework",
+    "color": "#7dc"
+  },
+  { "label": "Technology", "slug": "technology", "color": "#caf" }
+]

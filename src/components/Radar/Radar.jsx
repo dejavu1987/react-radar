@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import RadarDiagram from 'radar-diagram';
 import './radar.css';
+import { TweenMax } from 'gsap';
+
 const padding = 50;
 const Radar = ({ options, segments, rings, elements }) => {
+  let svgRef = useRef(null);
   const [radarDiagram, setRadarDiagram] = useState(
     new RadarDiagram(options, { elements, rings, segments })
-  );
-  const [viewBox, setViewBox] = useState(
-    `${-padding} ${-padding} ${
-      radarDiagram.options.baseDimension + 2 * padding
-    } ${radarDiagram.options.baseDimension + 2 * padding}`
   );
 
   const containerHeight = () => {
@@ -47,13 +45,20 @@ const Radar = ({ options, segments, rings, elements }) => {
         default:
           break;
       }
-      setViewBox(vb);
+      TweenMax.to(svgRef, 1, { attr: { viewBox: vb } });
     }
   }, [options, radarDiagram.options.baseDimension]);
 
   return (
     <div className="radar-container" style={{ height: containerHeight() }}>
-      <svg id="radar-plot" xmlns="http://www.w3.org/2000/svg" viewBox={viewBox}>
+      <svg
+        id="radar-plot"
+        viewBox={`${-padding} ${-padding} ${
+          radarDiagram.options.baseDimension + 2 * padding
+        } ${radarDiagram.options.baseDimension + 2 * padding}`}
+        xmlns="http://www.w3.org/2000/svg"
+        ref={(el) => (svgRef = el)}
+      >
         <circle
           r={radarDiagram.options.baseDimension / 2}
           cx={radarDiagram.options.baseDimension / 2}
@@ -76,6 +81,7 @@ const Radar = ({ options, segments, rings, elements }) => {
         />
         {radarDiagram.ringAxes.map((ringAxis) => (
           <circle
+            className="radar__ring"
             key={ringAxis.slug}
             cx={radarDiagram.options.baseDimension / 2}
             cy={radarDiagram.options.baseDimension / 2}
@@ -86,7 +92,7 @@ const Radar = ({ options, segments, rings, elements }) => {
             fillOpacity={0.3}
           ></circle>
         ))}
-        {radarDiagram.segmentAxes.map((segAxis) => (
+        {radarDiagram.segmentAxes.map((segAxis, idx) => (
           <g key={segAxis.slug}>
             <line
               className="radar__segment-axis"
@@ -101,10 +107,16 @@ const Radar = ({ options, segments, rings, elements }) => {
             <path
               className="radar__segment__path"
               id={'label-path-' + segAxis.slug}
-              d={segAxis.axis.labelPath}
+              d={radarDiagram.getSegmentLabelPathBase()}
               fill={'none'}
               stroke={segAxis.color}
               strokeWidth={15}
+              style={{
+                transform: `rotate(${
+                  (-idx * radarDiagram.options.totalAngle) /
+                  radarDiagram.segments.length
+                }rad)`,
+              }}
             ></path>
 
             <text>
@@ -136,7 +148,7 @@ const Radar = ({ options, segments, rings, elements }) => {
               strokeWidth={1}
               fill={dot.color}
             ></circle>
-            <text className="radar__dot__label">{dot.label.substr(0, 1)}</text>
+            <text className="radar__dot__label">{dot.label.substr(0, 5)}</text>
           </g>
         ))}
       </svg>

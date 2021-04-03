@@ -1,0 +1,5 @@
+[
+  { "label": "High", "slug": "high" },
+  { "label": "Medium", "slug": "medium" },
+  { "label": "Low", "slug": "low" }
+]
