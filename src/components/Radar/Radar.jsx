@@ -142,12 +142,18 @@ const Radar = ({ options, segments, rings, elements }) => {
             className="radar__dot"
             style={{ transform: `translate(${dot.x}px, ${dot.y}px)` }}
           >
-            <circle
+            <path
+              fill={dot.color}
+              transform="scale(0.1)"
+              stroke="black"
+              d="M131.2,101.7c4.1,56.2-28.6,86.3-64.6,86.3S-3.7,157.2,1,101.7C6,43,45,1,66.1,1C86,1,127,44,131.2,101.7z"
+            ></path>
+            {/* <circle
               r={dot.r}
               stroke={'#aaa'}
               strokeWidth={1}
               fill={dot.color}
-            ></circle>
+            ></circle> */}
             <text className="radar__dot__label">{dot.label.substr(0, 5)}</text>
           </g>
         ))}
