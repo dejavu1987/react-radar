@@ -9150,7 +9150,7 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.2.tgz"
   "version" "1.2.2"
 
-"radar-diagram@file:../radar-diagram":
+"radar-diagram@^1.1.0":
   "resolved" "file:../radar-diagram"
   "version" "1.1.0"
 
