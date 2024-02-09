@@ -1,10 +1,12 @@
 [
-  { "label": "Fruit", "slug": "fruit", "color": "#fa9" },
-  { "label": "Vegetable", "slug": "vegetable", "color": "#ad0" },
+  { "label": "Platforms", "slug": "platforms", "color": "#fa9" },
+  { "label": "Data management", "slug": "data-management", "color": "#ad0" },
   {
     "label": "Framework",
     "slug": "framework",
     "color": "#7dc"
   },
+  { "label": "Algorithms", "slug": "algorithms", "color": "#fa9" },
+  { "label": "Models", "slug": "models", "color": "#fa9" },
   { "label": "Technology", "slug": "technology", "color": "#caf" }
 ]

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import RadarDiagram from 'radar-diagram';
-import './radar.css';
-import { TweenMax } from 'gsap';
+import { useEffect, useRef, useState } from "react";
+import RadarDiagram from "radar-diagram";
+import "./radar.css";
+import { TweenMax } from "gsap";
 
 const padding = 50;
 const Radar = ({ options, segments, rings, elements }) => {
@@ -13,14 +13,16 @@ const Radar = ({ options, segments, rings, elements }) => {
   const containerHeight = () => {
     switch (options.totalAngle) {
       case Math.PI:
-        return '50vw';
+        return "50vw";
       default:
-        return '95vw';
+        return "95vw";
     }
   };
 
   useEffect(() => {
-    setRadarDiagram(new RadarDiagram(options, { elements, rings, segments }));
+    const radar = new RadarDiagram(options, { elements, rings, segments });
+    console.log(radar);
+    setRadarDiagram(radar);
   }, [options, segments, rings, elements]);
 
   useEffect(() => {
@@ -63,7 +65,7 @@ const Radar = ({ options, segments, rings, elements }) => {
           r={radarDiagram.options.baseDimension / 2}
           cx={radarDiagram.options.baseDimension / 2}
           cy={radarDiagram.options.baseDimension / 2}
-          fill="#ddd"
+          fill="rgb(181, 191, 255)"
         ></circle>
         <line
           x1={radarDiagram.options.baseDimension / 2}
@@ -100,15 +102,15 @@ const Radar = ({ options, segments, rings, elements }) => {
               x2={segAxis.axis.x2}
               y1={segAxis.axis.y1}
               y2={segAxis.axis.y2}
-              stroke={'#aaa'}
+              stroke={"#aaa"}
               strokeWidth={1}
             ></line>
 
             <path
               className="radar__segment__path"
-              id={'label-path-' + segAxis.slug}
+              id={"label-path-" + segAxis.slug}
               d={radarDiagram.getSegmentLabelPathBase()}
-              fill={'none'}
+              fill={"none"}
               stroke={segAxis.color}
               strokeWidth={15}
               style={{
@@ -122,14 +124,14 @@ const Radar = ({ options, segments, rings, elements }) => {
             <text>
               <textPath
                 href={`#label-path-${segAxis.slug}`}
-                fill={'#555'}
-                fontWeight={'800'}
+                fill={"#555"}
+                fontWeight={"800"}
                 fontSize={`${radarDiagram.options.totalAngle / 3 + 0.5}em`}
-                fontFamily={'Sans-serif'}
+                fontFamily={"Sans-serif"}
                 stroke={segAxis.color}
                 strokeWidth={1}
-                startOffset={'50%'}
-                textAnchor={'middle'}
+                startOffset={"50%"}
+                textAnchor={"middle"}
               >
                 {segAxis.label}
               </textPath>
@@ -142,19 +144,21 @@ const Radar = ({ options, segments, rings, elements }) => {
             className="radar__dot"
             style={{ transform: `translate(${dot.x}px, ${dot.y}px)` }}
           >
-            <path
+            {/* <path
               fill={dot.color}
               transform="scale(0.1)"
               stroke="black"
               d="M131.2,101.7c4.1,56.2-28.6,86.3-64.6,86.3S-3.7,157.2,1,101.7C6,43,45,1,66.1,1C86,1,127,44,131.2,101.7z"
-            ></path>
-            {/* <circle
+            ></path> */}
+            <circle
               r={dot.r}
-              stroke={'#aaa'}
+              stroke={"#aaa"}
               strokeWidth={1}
               fill={dot.color}
-            ></circle> */}
-            <text className="radar__dot__label">{dot.label.substr(0, 5)}</text>
+            ></circle>
+            <text text-anchor="middle" className="radar__dot__label">
+              {dot.label.substr(0, 15)}
+            </text>
           </g>
         ))}
       </svg>

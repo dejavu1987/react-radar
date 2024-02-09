@@ -1,5 +1,7 @@
 [
-  { "label": "High", "slug": "high" },
-  { "label": "Medium", "slug": "medium" },
-  { "label": "Low", "slug": "low" }
+  { "label": "Focus", "slug": "focus" },
+  { "label": "Adopt", "slug": "adopt" },
+  { "label": "Trial", "slug": "trial" },
+  { "label": "Evaluate", "slug": "evaluate" },
+  { "label": "Hold", "slug": "hold" }
 ]
